@@ -1,0 +1,11 @@
+const path = require('path')
+const config = require('./configs/configs')
+
+const { host, port, dialect, username, password, database } = config.development
+
+module.exports = {
+  'migrations-path': path.resolve('migrations'),
+  'models-path': path.resolve('models'),
+  'seeders-path': path.resolve('seeders'),
+  'url': `${dialect}://${username}:${password}@${host}:${port}/${database}`
+}
